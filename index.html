@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giphy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" 
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./src/style.css">
+    <script defer src="./src/index.js"></script>
+    <script defer src="./src/baseCard.js"></script>
+    <script defer src="./src/customComponent.js"></script>
+</head>
+<body>
+    <section>
+        <h1 class="title">Giphy API</h1>
+        <form class="form">
+            <div class="form-field">
+                <input type="text" class="form-field-input" id="search" placeholder="Search for gifs">
+                <input type="submit" value="Get Gifs" class="form-field-submit">
+            </div>
+        </form>
+        <main class="results">
+            
+        </main>
+        <div><i class="fa-solid fa-heart"></i></div>
+    </section>
+
+        <giphy-card gif_id="xTiIzmb9qtFF7WcezK"></giphy-card>
+        <giphy-card gif_id="3McVvEI163VxinxwBq"></giphy-card>
+        <giphy-card gif_id="rrmf3fICPZWg1MMXOW"></giphy-card>
+        <giphy-card gif_id="xTiIzmb9qtFF7WcezK"></giphy-card>
+        <giphy-card ></giphy-card>
+
+    <template id="gif-card">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+        <style>
+            .image-container{
+                display: inline-flex;
+                position: relative;
+                border: 0.13rem solid black;
+                border-radius: 0.13rem;
+                margin: 0.13rem;
+                width: fit-content;
+                height: 100%;
+            }
+            .image-overlay{
+                position: absolute;
+                bottom: 0; 
+                background: rgb(161, 55, 211);
+                background: rgba(161, 55, 211, 0.7); /* Black see-through */
+                color: #f1f1f1; 
+                width: 100%;
+                transition: .5s ease;
+                opacity:0;
+                color: white;
+                font-size: 20px;
+                text-align: center;
+                cursor: pointer;
+                width: 100%;
+                height: 100px;
+            }
+            .image-container:hover .image-overlay {
+                opacity: 1;
+            }
+        </style>
+        <div class="image-container">
+            <div class="image-overlay">Overlay
+                <div><<i class="fas fa-heart"></i></div>
+                <div><<i class="fas fa-heart"></i></div>
+            </div>
+            <img src="" alt="">
+        </div>
+    </template>
+
+    <template id="person-template">
+        <div>
+          <h2>Personal ID Card</h2>
+          <slot name="person-name">NAME MISSING</slot>
+          <ul>
+            <li><slot name="person-age">AGE MISSING</slot></li>
+            <li><slot name="person-occupation">OCCUPATION MISSING</slot></li>
+          </ul>
+        </div>
+    </template>
+      
+    <person-details>
+        <p slot="person-name"><edit-word>Morgan</edit-word> Stanley</p>
+        <span slot="person-age">36</span>
+        <span slot="person-occupation">Accountant</span>
+    </person-details>
+
+    <p>My name is <edit-word>Chris</edit-word>, the man said.</p>
+
+</body>
+</html>
